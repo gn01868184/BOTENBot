@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <!-- Bootstrap 4 Icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <!-- jQuery -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <!-- chatBot UI-->
+  <link rel="stylesheet" href="./Css/chatBot.css">
+  <title>Boten Bot</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light  bg-primary">
+    <a class="navbar-brand  text-light" href="./index.html"><span class="fas fa-robot"></span>&nbsp;Boten Bot</a>
+  </nav>
+
+  <div class="chatBot">
+      <div class="chatBotHeading">
+          <label for="chatTextBox" id="chatOpenTrigger" class="">Any Queries? Ask Me!</label>
+      </div>
+      <hr class="">
+      <div class="chatBody">
+          <div class="chatSession">
+          </div>
+      </div>
+      <form class="chatForm" autocomplete="off">
+          <div class="typingArea">
+              <textarea name="chatInput" id="chatTextBox" class="textArea" onblur="if(!validateMessage()) this.value = 'Type here...'" onfocus="if(!validateMessage()) this.value = ''"></textarea>
+              <button type="submit" class="sendButton" id="sendButton"><img src="./Gfx/send.svg" alt="Send" srcset=""></button>
+          </div>
+          <button type="button" id="chatCloseTrigger">Close Chat!</button>
+      </form>
+  </div>
+
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-body" id="reponse">
+        <label>Username</label>
+        <div class="form-group row">
+          <div class="input-group col">
+            <input type="text" class="form-control" placeholder="Username" id="userName">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" id="userNameButton">Submit Username</button>
+            </div>
+          </div>
+          <button type="button" class="btn btn-outline-secondary col" id="allowLocation">Allow to know the location</button>
+        </div>
+      </div>
+    </div>
+    </br>
+  </div>
+  <script>
+    $(document).ready(function() {
+      if (localStorage.getItem('userName') != null) {
+        $('#userName').attr("placeholder", localStorage.getItem('userName'));
+      }
+      $("#userNameButton").click(function() {
+        localStorage.setItem('userName', document.getElementById("userName").value);
+        console.log(localStorage.getItem('userName'));
+      });
+    });
+  </script>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <!-- chatBot UI -->
+  <script src="./Js/chatBotConversation.js"></script>
+  <script src="./Js/chatBotValidate.js"></script>
+  <script src="./Js/chatBotAnimate.js"></script>
+</body>
+
+</html>
