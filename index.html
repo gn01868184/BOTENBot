@@ -58,6 +58,16 @@
   </div>
   <script>
     $(document).ready(function() {
+
+      $.ajax({
+          url : "fs.json",
+          dataType: "text",
+          success : function (data) {
+              $(".text").html(data);
+              console.log(data);
+          }
+      });
+
       if (localStorage.getItem('userName') != null) {
         $('#userName').attr("placeholder", localStorage.getItem('userName'));
       }
