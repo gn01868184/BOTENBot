@@ -1,4 +1,4 @@
-const rasaUrl = ""
+const rasaUrl = "http://localhost:5005/webhooks/rest/webhook"
 
 // Selecting element to view chat
 var chatBotSession = document.querySelector(".chatBot .chatBody .chatSession")
@@ -165,7 +165,7 @@ function ajaxFunction(userInput) {
     $.ajax({
       async: false,
       type: "POST",
-      url: 'http://localhost:5005/webhooks/rest/webhook',
+      url: rasaUrl,
       dataType: 'json',
       data: JSON.stringify(reqData),
       success: function(data) {
