@@ -13,30 +13,30 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <!-- chatBot UI-->
   <link rel="stylesheet" href="./Css/chatBot.css">
-  <title>Boten Bot</title>
+  <title class="title">BOTEN Bot</title>
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light  bg-primary">
-    <a class="navbar-brand  text-light" href="./index.html"><span class="fas fa-robot"></span>&nbsp;Boten Bot</a>
+    <a class="navbar-brand  text-light title" href="./index.html"><span class="fas fa-robot"></span>BOTEN Bot</a>
   </nav>
 
   <div class="chatBot">
-      <div class="chatBotHeading">
-          <label for="chatTextBox" id="chatOpenTrigger" class="">Any Queries? Ask Me!</label>
+    <div class="chatBotHeading">
+      <label for="chatTextBox" id="chatOpenTrigger" class="">Any Queries? Ask Me!</label>
+    </div>
+    <hr class="">
+    <div class="chatBody">
+      <div class="chatSession">
       </div>
-      <hr class="">
-      <div class="chatBody">
-          <div class="chatSession">
-          </div>
+    </div>
+    <form class="chatForm" autocomplete="off">
+      <div class="typingArea">
+        <textarea name="chatInput" id="chatTextBox" class="textArea" onblur="if(!validateMessage()) this.value = 'Type here...'" onfocus="if(!validateMessage()) this.value = ''"></textarea>
+        <button type="submit" class="sendButton" id="sendButton"><img src="./Gfx/send.svg" alt="Send" srcset=""></button>
       </div>
-      <form class="chatForm" autocomplete="off">
-          <div class="typingArea">
-              <textarea name="chatInput" id="chatTextBox" class="textArea" onblur="if(!validateMessage()) this.value = 'Type here...'" onfocus="if(!validateMessage()) this.value = ''"></textarea>
-              <button type="submit" class="sendButton" id="sendButton"><img src="./Gfx/send.svg" alt="Send" srcset=""></button>
-          </div>
-          <button type="button" id="chatCloseTrigger">Close Chat!</button>
-      </form>
+      <button type="button" id="chatCloseTrigger">Close Chat!</button>
+    </form>
   </div>
 
   <div class="container-fluid">
@@ -58,14 +58,13 @@
   </div>
   <script>
     $(document).ready(function() {
-
       $.ajax({
-          url : "fs.json",
-          dataType: "text",
-          success : function (data) {
-              $(".text").html(data);
-              console.log(data);
-          }
+        url: "title.json",
+        dataType: "json",
+        success: function(data) {
+          $(".title").html(data['title']);
+          console.log(data['title']);
+        }
       });
 
       if (localStorage.getItem('userName') != null) {
