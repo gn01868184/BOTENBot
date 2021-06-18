@@ -1,3 +1,5 @@
+const rasaUrl = ""
+
 // Selecting element to view chat
 var chatBotSession = document.querySelector(".chatBot .chatBody .chatSession")
 
