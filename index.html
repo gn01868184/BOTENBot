@@ -17,11 +17,11 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light  bg-primary">
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary ">
     <a class="navbar-brand  text-light title" href="./index.html"><span class="fas fa-robot"></span>BOTEN Bot</a>
   </nav>
-
-  <div class="chatBot">
+<div class="row">
+  <div class="chatBot col-3">
     <div class="chatBotHeading">
       <label for="chatTextBox" id="chatOpenTrigger" class="">Any Queries? Ask Me!</label>
     </div>
@@ -39,7 +39,7 @@
     </form>
   </div>
 
-  <div class="container-fluid">
+  <div class="col-9">
     <div class="card">
       <div class="card-body" id="reponse">
         <label>Username</label>
@@ -56,10 +56,16 @@
     </div>
     </br>
   </div>
+</div>
+
+
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+
+
   <script>
     $(document).ready(function() {
       $.ajax({
-        url: "title.json",
+        url: "./title.json",
         dataType: "json",
         success: function(data) {
           $(".title").html(data['title']);
