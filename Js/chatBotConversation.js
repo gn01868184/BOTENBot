@@ -195,7 +195,7 @@ function ajaxFunction(userInput) {
                       );
                     });
                   });
-                  response = "Please see the table";
+                  response = "Please see the result";
                 } else {
                   response = tmpData['message'];
                 }
